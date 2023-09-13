@@ -3,8 +3,8 @@
 
 ## Usage:
 
--Put `config` and  `i3status.conf` in ```~/.config/i3/``` directory.
--Put `picom.conf` in ```~/.config/picom/``` directory.
+- Put `config` and  `i3status.conf` in ```~/.config/i3/``` directory.
+- Put `picom.conf` in ```~/.config/picom/``` directory.
 
 #### More info what each of them are:
 

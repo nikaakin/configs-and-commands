@@ -43,7 +43,7 @@ exec --no-startup-id picom -CGb --experimental-backends --config ~/.config/picom
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 
-exec_always setxkbmap -layout us,ge exec_always setxkbmap -option 'grp:win_space_toggle'
+exec_always setxkbmap -layout us,ge -option 'grp:win_space_toggle'
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -155,6 +155,21 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
+
+
+
+# assign wokspaces
+assign [class="Gnome-terminal"] $ws1
+assign [class="Google-chrome"] $ws2
+assign [class="Firefox"] $ws2
+assign [class="Chromium"] $ws2
+assign [class="Brave-browser"] $ws2
+assign [class="Slack"] $ws4
+
+# start workspaces on startup
+exec --no-startup-id gnome-terminal
+exec --no-startup-id google-chrome
+exec --no-startup-id slack
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

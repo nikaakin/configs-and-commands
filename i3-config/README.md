@@ -14,4 +14,5 @@
 #### Debugging:
 
 - `i3-msg reload` or `i3-msg restart` to resource them. (If its not resourcing the config file `i3-msg exit` or `reboot`). All those commands have keyboard combinations as well.
+
 - If something is not resourcing change `exec` with `exec_always` and remove `--no-startup-id` as well.

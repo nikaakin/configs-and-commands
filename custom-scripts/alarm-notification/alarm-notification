@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# fire notification in given number of minutes
+function alarm-notification(){
+	TIMER=0
+	BREAK=5
+
+	if [ -n "$1" ]
+	then TIMER=$1
+	fi
+
+	if [ -n "$2" ]
+	then BREAK=$2
+	fi
+
+	echo "notify-send -u critical -t 0 -i ./alarm-notification.png 'Time is up' '$TIMER min is over, $BREAK min break' && aplay ./alarm-notification.wav" | at now + $TIMER minutes
+};

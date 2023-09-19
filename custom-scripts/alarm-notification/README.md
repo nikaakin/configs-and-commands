@@ -2,7 +2,7 @@
 
 Timer to alarm you when time is up with popup notification. First argument is the time in minutes from now you want the notification to be fired.
 
-## Pre requisite:
+## Prerequisite:
 
 - [at](https://linux.die.net/man/1/at) - `at` and `batch` read commands from standard input or a specified file which are to be executed at a later time.
 - [notify-send](https://man.archlinux.org/man/notify-send.1.en) - With `notify-send` you can send desktop notifications to the user via a notification daemon from the command line.

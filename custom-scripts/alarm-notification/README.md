@@ -1,6 +1,6 @@
 # Alarm Notification
 
-Timer to alarm you when time is up with popup notification. First argument is the time in minutes from now you want the notification to be fired.
+Timer to alarm you when time is up with popup notification.
 
 ## Prerequisite:
 
@@ -10,13 +10,13 @@ Timer to alarm you when time is up with popup notification. First argument is th
 ## Usage:
 
 - Source the executable `alarm-notification` file and you will get the access to `alarm-notification` command.
-- First argument of the command is the time you want the notification to run notify you. Without providing this argument notification will be fired instantly. 
-- Second argument is option it just modifies the text on the notification.
+- First argument of the command is the time you want the notification to notify you. Without providing this argument notification will be fired instantly. 
+- Second argument is optional. It just modifies the text on the notification.
 
 ## Customize:
 
-- For now there is no argument responsible for advenced customization of text. So you might need to change the text from file itself for now.
-- If you wish to store .wav and .png files somewhere else update the path in the command file respectivle for command to work properly and source command again.
+- For now there is no argument responsible for advenced customization of text. So you might need to change the text from file itself.
+- If you wish to store .wav and .png files somewhere else update the path in the command file respectively for command to work properly and source command again.
 
 ## Examples:
 

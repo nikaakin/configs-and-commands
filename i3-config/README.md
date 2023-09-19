@@ -1,15 +1,16 @@
 # I3 setup:
+I3 is a tiling window manager, completely written from scratch. The target platforms are GNU/Linux and BSD operating systems, our code is Free and Open Source Software (FOSS) under the BSD license.
 
 ## Usage:
 
--Put `config` and `i3status.conf` in `~/.config/i3/` directory.
--Put `picom.conf` in `~/.config/picom/` directory.
+- Put `config` and `i3status.conf` in `~/.config/i3/` directory.
+- Put `picom.conf` in `~/.config/picom/` directory.
 
 #### More info what each of them are:
 
-- `config` is main config file for i3wm. There are all keyboard variations and more stuff about i3vm workflow (as well as loading the statusbar, setting background image, switching languages and so on.)
-- `i3status.conf` is configuration about status what is displayed there and how.
-- `picom.conf` includes configuration for i3wm composition package picom. In my case vs code had split second flash of white screen each time switching window to it. this configuration fixes it and add more smooth animations.
+- `config` is main config file for i3wm. There are all keyboard variations and more stuff for i3vm setup (as well as loading the statusbar, setting background image, switching languages and so on.)
+- `i3status.conf` is configuration about status bar.
+- `picom.conf` includes configuration for i3wm composition package `picom`. In my case VScode had split second flash of white screen each time switching window to it. this configuration fixes it and adds more smooth animations.
 
 #### Debugging:
 

@@ -1,6 +1,6 @@
 # configs-and-commands
 
-Some useful config files and custom commands to setup linux environment.
+Some config files and custom commands to setup linux environment.
 
 ## Usage:
 

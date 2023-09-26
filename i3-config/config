@@ -38,12 +38,13 @@ exec --no-startup-id nm-applet
 
 # Screen resolution, background, make terminal transparent, language toggle
 exec --no-startup-id xrandr --output eDP --mode 1680x1050 
-exec_always feh --bg-scale ~/Pictures/Wallpapers/'black_dark_fractal_149686_1920x1200.jpg'
+exec --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/'black_dark_fractal_149686_1920x1200.jpg'
 exec --no-startup-id picom -CGb --experimental-backends --config ~/.config/picom/picom.conf
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 
 exec_always setxkbmap -layout us,ge -option 'grp:win_space_toggle'
+
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -115,6 +116,9 @@ bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
+
+# print screen (-a gives area selector right away. alternatively use gnome-screenshot -i for more options)
+bindsym --release Control+F12 exec gnome-screenshot -a
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -237,7 +241,8 @@ client.urgent               $rd        $rd         $tx
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    status_command i3status --config ~/.config/i3/i3status.conf 
+    status_command sh ~/.config/i3/netspeed.sh
+    separator_symbol "||"
 
     colors {
         background          $bg

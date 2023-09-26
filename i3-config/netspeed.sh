@@ -1,4 +1,4 @@
- #!/bin/sh
+#!/bin/sh
 
 # Authors:
 # - Moritz Warning <moritzwarning@web.de> (2016)
@@ -24,16 +24,16 @@
 #
 
 # Auto detect interfaces
-ifaces=$(ls /sys/class/net | grep -E '^(eno|enp|ens|enx|eth|wlan|wlp)')  
+ifaces=$(ls /sys/class/net | grep -E '^(eno|enp|ens|enx|eth|wlo|wlan|wlp)')
 
-last_time=0                    
-last_rx=0  
-last_tx=0                
+last_time=0
+last_rx=0
+last_tx=0
 rate=""
 
-readable() {                
+readable() {
   local bytes=$1
-  local kib=$(( bytes >> 10 ))                                      
+  local kib=$(( bytes >> 10 ))
   if [ $kib -lt 0 ]; then
     echo "? K"
   elif [ $kib -gt 1024 ]; then
@@ -43,10 +43,10 @@ readable() {
       mib_dec="0${mib_dec}"
     fi
     echo "${mib_int}.${mib_dec} M"
-  else                  
-    echo "${kib} K"                                                    
+  else
+    echo "${kib} K"
   fi
-}          
+}
 
 update_rate() {
   local time=$(date +%s)
@@ -56,24 +56,24 @@ update_rate() {
     read tmp_rx < "/sys/class/net/${iface}/statistics/rx_bytes"
     read tmp_tx < "/sys/class/net/${iface}/statistics/tx_bytes"
     rx=$(( rx + tmp_rx ))
-    tx=$(( tx + tmp_tx ))     
-  done                            
-    
+    tx=$(( tx + tmp_tx ))
+  done
+
   local interval=$(( $time - $last_time ))
   if [ $interval -gt 0 ]; then
     rate="$(readable $(( (rx - last_rx) / interval )))↓ $(readable $(( (tx - last_tx) / interval )))↑"
   else
-    rate=""        
+    rate=""
   fi
 
   last_time=$time
-  last_rx=$rx  
-  last_tx=$tx           
-}                              
+  last_rx=$rx
+  last_tx=$tx
+}
 
-i3status | (read line && echo "$line" && read line && echo "$line" && read line && echo "$line" && update_rate && while :                                             
-do                                                             
-  read line              
-  update_rate            
-  echo ",[{\"full_text\":\"${rate}\" },${line#,\[}" || exit 1                                    
+i3status --config ~/.config/i3/i3status.conf | (read line && echo "$line" && read line && echo "$line" && read line && echo "$line" && update_rate && while :
+do
+  read line
+  update_rate
+  echo "W : ${rate} | ${line#,\[}" || exit 1
 done)

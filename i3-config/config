@@ -42,6 +42,7 @@ exec --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/'black_dark_fractal_14
 exec --no-startup-id picom -CGb --experimental-backends --config ~/.config/picom/picom.conf
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+bindsym F7 exec --no-startup-id xset dpms force off
 
 exec_always setxkbmap -layout us,ge -option 'grp:win_space_toggle'
 
@@ -117,7 +118,7 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# print screen (-a gives area selector right away. alternatively use gnome-screenshot -i for more options)
+# print screen
 bindsym --release Control+F12 exec gnome-screenshot -a
 
 # focus the child container
@@ -173,7 +174,7 @@ assign [class="Slack"] $ws4
 # start workspaces on startup
 exec --no-startup-id gnome-terminal
 exec --no-startup-id google-chrome
-exec --no-startup-id slack
+# exec --no-startup-id slack
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

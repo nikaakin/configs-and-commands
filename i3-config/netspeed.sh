@@ -75,5 +75,5 @@ i3status --config ~/.config/i3/i3status.conf | (read line && echo "$line" && rea
 do
   read line
   update_rate
-  echo "W : ${rate} | ${line#,\[}" || exit 1
+  echo "${rate} | ${line#,\[}" || exit 1
 done)

@@ -37,8 +37,8 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # Screen resolution, background, make terminal transparent, language toggle
-exec --no-startup-id xrandr --output eDP --mode 1680x1050 
-exec --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/'black_dark_fractal_149686_1920x1200.jpg'
+#exec --no-startup-id xrandr --output eDP --mode 1680x1050 
+#exec --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/'black_dark_fractal_149686_1920x1200.jpg'
 exec --no-startup-id picom -CGb --experimental-backends --config ~/.config/picom/picom.conf
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
@@ -172,7 +172,7 @@ assign [class="Brave-browser"] $ws2
 assign [class="Slack"] $ws4
 
 # start workspaces on startup
-exec --no-startup-id gnome-terminal -- bash -c "cat ~/Desktop/note.md; exec bash"
+exec --no-startup-id gnome-terminal -- bash -c "cat ~/Desktop/note.md; exec zsh"
 exec --no-startup-id google-chrome
 # exec --no-startup-id slack
 
@@ -222,19 +222,19 @@ default_floating_border pixel 1
 for_window [class="^.*"] border pixel 1
 
 # color defines for zenburn styled i3
-set $bg     #111c2e
-set $fg     #9f9f9f
+set $bg     #1a1a1e
+set $fg     #afafaf
 set $hi     #4e6e34
-set $ac     #55778a
-set $tx     #040404
+set $ac     #00A36C
+set $tx     #444444
 set $ia     #8f8f8f
 set $be     #111111
 set $yw     #ccdc90
-set $gn     #788888
+set $gn     #999999
 set $rd     #e89393
 
 # set some nice colors      border     background  text
-client.focused              $ac        $ac         $tx
+client.focused              $ac        $fg         $tx
 client.unfocused            $bg        $bg         $ia
 client.focused_inactive     $bg        $bg         $ac
 client.urgent               $rd        $rd         $tx
@@ -250,7 +250,7 @@ bar {
         background          $bg
         statusline          $fg
         separator           $hi
-        focused_workspace   $gn        $bg        $ac
+        focused_workspace   $ac        $bg        $ac
         active_workspace    $gn        $ac        $tx
         inactive_workspace  $bg        $bg        $ia
         urgent_workspace    $rd        $bg        $ac

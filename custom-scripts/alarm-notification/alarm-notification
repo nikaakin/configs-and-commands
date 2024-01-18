@@ -4,7 +4,12 @@
 function alarm-notification(){
 	TIMER=0
 	BREAK=5
+	CUR_DIR=/home/nika/bin-assets/alarm-notification/
 
+	if [ $1 = "--help" ]
+	then cat $CUR_DIR/README.md
+	else
+	
 	if [ -n "$1" ]
 	then TIMER=$1
 	fi
@@ -12,6 +17,9 @@ function alarm-notification(){
 	if [ -n "$2" ]
 	then BREAK=$2
 	fi
+	
 
-	echo "notify-send -u critical -t 0 -i ./alarm-notification.png 'Time is up' '$TIMER min is over, $BREAK min break' && aplay ./alarm-notification.wav" | at now + $TIMER minutes
+	echo "notify-send -u critical -t 0 -i $CUR_DIR/alarm-notification.png 'Time is up' '$TIMER min is over, $BREAK min break' && aplay $CUR_DIR/alarm-notification.wav" | at now + $TIMER minutes
+
+	fi
 };

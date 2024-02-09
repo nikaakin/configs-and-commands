@@ -73,10 +73,12 @@ ZSH_THEME="robbyrussell"
 plugins=(git zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/bin/*
+
 
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 export PATH="$HOME/.local/bin":$PATH
+export PATH="$HOME/bin":$PATH
+
 
 # User configuration
 

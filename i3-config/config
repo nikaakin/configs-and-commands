@@ -42,7 +42,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id picom -CGb --experimental-backends --config ~/.config/picom/picom.conf
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
-bindsym F7 exec --no-startup-id xset dpms force off
+bindsym F7 exec --no-startup-id ~/bin/screen_off
 
 exec_always --no-startup-id setxkbmap -layout us,ge -option 'grp:win_space_toggle'
 

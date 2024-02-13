@@ -38,6 +38,7 @@ ZSH_THEME="robbyrussell"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
+# this need to be disabled if you want to change terminal title yourself  like this echo -n -e "\033]0;your_title\007"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
@@ -74,11 +75,9 @@ plugins=(git zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
-
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 export PATH="$HOME/.local/bin":$PATH
 export PATH="$HOME/bin":$PATH
-
 
 # User configuration
 
@@ -120,3 +119,23 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 export JAVA_HOME=/usr/lib/jvm/default-java
 export PATH=$JAVA_HOME/bin:$PATH
+
+
+#fzf search and cd to directory
+function cd_fzf_search_projects {
+	cdto=$(fzf_search_projects)
+	cd $cdto
+}
+
+zle -N cd_fzf_search_projects
+bindkey -s '^[f' cd_fzf_search_projects # Alt-f
+
+
+#changes terminal titles to be the last part of the directory path
+#case $TERM in
+#    xterm*)
+#	    precmd () {print -Pn "\e]0;${$(basename $PWD)}\a"}
+#	;;
+#esac
+
+

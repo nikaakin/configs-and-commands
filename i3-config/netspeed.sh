@@ -30,6 +30,7 @@ last_time=0
 last_rx=0
 last_tx=0
 rate=""
+is_vpn_on="on"
 
 readable() {
   local bytes=$1
@@ -69,11 +70,17 @@ update_rate() {
   last_time=$time
   last_rx=$rx
   last_tx=$tx
+
+  #vpn status on status bar
+  vpn_status=$(warp-cli status | head -n 1)
+  if echo "$vpn_status" | grep -q "Disconnected"; then
+    is_vpn_on="off"
+  fi
 }
 
 i3status --config ~/.config/i3/i3status.conf | (read line && echo "$line" && read line && echo "$line" && read line && echo "$line" && update_rate && while :
 do
   read line
   update_rate
-  echo "${rate} | ${line#,\[}" || exit 1
+  echo "${rate} | vpn: ${is_vpn_on} | ${line#,\[}" || exit 1
 done)

@@ -17,4 +17,3 @@ fi
 
 echo "notify-send -u critical -t 0 -i $CUR_DIR/alarm-notification.png 'Time is up' '$TIMER min is over, $BREAK min break' && aplay $CUR_DIR/alarm-notification.wav" | at now + $TIMER minutes
 fi
-

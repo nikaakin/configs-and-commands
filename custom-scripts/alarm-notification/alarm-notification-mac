@@ -1,0 +1,25 @@
+#!/bin/bash
+
+TIMER=0
+BREAK=5
+CUR_DIR="/Users/nikatsutskiridze/commands/configs-and-commands/custom-scripts/alarm-notification"
+NOTIFIER="$(which terminal-notifier)"
+
+if [ "$1" = "--help" ]; then
+  cat "$CUR_DIR/README.md"
+  exit 0
+fi
+
+if [ -n "$1" ]; then
+  TIMER=$1
+fi
+
+if [ -n "$2" ]; then
+  BREAK=$2
+fi
+
+(
+  sleep $((TIMER * 60))
+  "$NOTIFIER" -appIcon "$CUR_DIR/alarm-notification.png" -title "Time is up" -message "$TIMER min is over, $BREAK min break"
+  afplay "$CUR_DIR/alarm-notification.wav"
+) & disown

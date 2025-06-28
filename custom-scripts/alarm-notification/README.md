@@ -1,26 +1,55 @@
 # Alarm Notification
 
-Timer to alarm you when time is up with popup notification.
+#### A simple shell script to notify you when your timer is up using a popup notification and optional sound alert.
 
-## Prerequisite:
+---
 
-- [at](https://linux.die.net/man/1/at) - `at` and `batch` read commands from standard input or a specified file which are to be executed at a later time.
-- [notify-send](https://man.archlinux.org/man/notify-send.1.en) - With `notify-send` you can send desktop notifications to the user via a notification daemon from the command line.
+## ✅ Features
 
-## Usage:
+- Set a timer in minutes that runs in the background
+- Get a desktop popup notification when time is up
+- Optional sound alarm
+- Supports both **Linux** and **macOS**
 
-- Source the executable `alarm-notification` file and you will get the access to `alarm-notification` command.
-- First argument of the command is the time you want the notification to notify you. Without providing this argument notification will be fired instantly. 
-- Second argument is optional. It just modifies the text on the notification.
+---
 
-## Customize:
+## 📦 Prerequisites
 
-- For now there is no argument responsible for advenced customization of text. So you might need to change the text from file itself.
-- If you wish to store .wav and .png files somewhere else update the path in the command file respectively for command to work properly and source command again.
+### ▶️ Linux
+
+- [`at`](https://linux.die.net/man/1/at) — used to schedule a future job
+- [`notify-send`](https://man.archlinux.org/man/notify-send.1.en) — sends popup notifications
+- [`aplay`](https://linux.die.net/man/1/aplay) — plays `.wav` audio files
+
+### ▶️ macOS
+
+- `sleep` and backgrounding `(& disown)` — used instead of at to delay and detach jobs.
+- `terminal-notifier` — replacement for notify-send, used to show macOS-native notifications.
+- `afplay` — built-in macOS command-line audio player (used instead of aplay).
 
 ## Examples:
 
 - Alarm will be up in 1 minute : `alarm-notification 1`.
 - View all prepared notification by : `atq`. Which will show something like this : `48	Sun Sep 17 21:46:00 2023 a user` meaning there is one notification which will be fired at the time specified there.
-- If you wish to remove the specific notification `atrm <id>`. id in our case is `48` from  here `48	Sun Sep 17 21:46:00 2023 a user`.  
+- If you wish to remove the specific notification `atrm <id>`. id in our case is `48` from here `48	Sun Sep 17 21:46:00 2023 a user`.
 
+## Usage On Different Platforms
+
+- `alarm-notification` file includes scripts for both Linux and macOS. Comment out the one you don't need.
+
+## Limitations
+
+- On Mac custom notification image wont work. To make it work user -sender option on terminal-notifier command. -sender should be an application bundle identifier.
+
+## Structure
+
+alarm-notification/
+├── alarm-notification # ← executable script
+├── alarm-notification.wav # ← optional sound
+├── alarm-notification.png # ← optional icon
+├── README.md
+└── LICENCE
+
+## License
+
+This project is licensed under the MIT License - see the [LICENCE](./LICENCE) file for details.

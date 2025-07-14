@@ -1,2 +1,3 @@
 - [ ] git repo protection
 - [ ] figure our rulesets better and test them
+- [ ] env variables for path, or use relative paths, or some shell variable
